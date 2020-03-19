@@ -1,0 +1,43 @@
+{
+  "name": "mucellit-css",
+  "description": "Mücellitler için bir eKitap hazırlama alt yapısı",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Mucellithane/mucellit.css",
+  "license": "MIT",
+  "keywords": [
+    "ebook",
+    "epub",
+    "epub2",
+    "epub3",
+    "css",
+    "kindle",
+    "framework",
+    "ebook-framework"
+  ],
+  "author": {
+    "name": "Mücellithane",
+    "url": "https://github.com/Mucellithane"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mucellithane/mucellit.css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mucellithane/mucellit.css/issues"
+  },
+  "main": "source/mucellit.less",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^4.2.1",
+    "cpx": "^1.5.0",
+    "epub-zip": "0.0.1",
+    "less": "^3.9.0"
+  },
+  "scripts": {
+    "build": "npm run build:default && npm run make",
+    "build:default": "lessc source/mucellit.less mucellit.css && cleancss --format beautify -o mucellit.uncommented.css mucellit.css && cpx mucellit.css template/Mucellit_ePub3/OEBPS/Styles",
+    "make": "node template/make.js"
+  }
+}
